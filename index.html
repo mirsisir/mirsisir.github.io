@@ -176,7 +176,9 @@
                     <br>
 
                     <div class="pt-4">
-                        <h1 class="display-1 font-weight-bold head_text_color"  style="text-decoration: blueviolet; ">Mir Sisir</h1>
+                        <h1 class="display-1 font-weight-bold head_text_color"  style="text-decoration: blueviolet; "><div id="name">
+
+                        </div></h1>
                         <h5 class="h1 " style="font-size: 400%"><span class="head_text_color">I'm</span>
                             <span
                                     class="txt-rotate header"
@@ -438,6 +440,79 @@
 </div>
 
 
+
+<script>
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const nameDiv = document.getElementById('name');
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+        const name = "MIR SISIR"
+
+        async  function updateLetter() {
+
+            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            for (let n = 0; n < name.length; n++) {
+
+
+                for (let i = 0; i < alphabet.length; i++) {
+                    if (name[n] === " "){
+                        let spanElement = document.createElement('span');
+                        spanElement.id = "-";
+                        spanElement.textContent = " ";
+                        nameDiv.appendChild(spanElement);
+                        break;
+                    }
+                    await sleep(50);
+
+
+                    id = name[n] + n
+
+                    if (i === 0){
+
+                        let spanElement = document.createElement('span');
+                        spanElement.id = id;
+                        spanElement.textContent = alphabet[i];
+                        nameDiv.appendChild(spanElement);
+
+                    }
+                    else{
+                        let spanElement = document.getElementById(id);
+                        spanElement.innerHTML = alphabet[i];
+                    }
+
+
+
+                    if (name[n] === alphabet[i]){
+                        console.log(alphabet[i])
+                        console.log(name[n])
+                        console.log('------')
+                        break;
+                    }
+
+
+                }
+            }
+
+
+        }
+
+        updateLetter()
+
+
+
+
+    });
+
+
+
+
+</script>
 <script>
 
 
